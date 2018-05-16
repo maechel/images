@@ -4,7 +4,10 @@
             Image Storage
         </a>
         <div class="right menu">
-            <a href="#" class="menu item" @click="login">Login</a>
+            <div v-if="isLoggedIn">
+               Gallery Upload Logout
+            </div>
+            <a v-else href="#" class="menu item" @click="login">Login</a>
         </div>
     </div>
 </template>
