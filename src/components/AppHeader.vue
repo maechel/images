@@ -4,8 +4,10 @@
             Image Storage
         </a>
         <div class="right menu">
-            <div v-if="isLoggedIn">
-               Gallery Upload Logout
+            <div v-if="isLoggedIn" class="horizontal">
+                <a href="#" class="item">Gallery</a>
+                <a href="#" class="item">Upload</a>
+                <a href="#" class="item">Logout</a>
             </div>
             <a v-else href="#" class="menu item" @click="login">Login</a>
         </div>
@@ -23,5 +25,8 @@
 </script>
 
 <style scoped>
-
+    .horizontal {
+        display: flex;
+        flex-direction: row;
+    }
 </style>
