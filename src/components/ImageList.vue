@@ -1,9 +1,14 @@
 <template>
-    <div class="image-container">
-       <img v-for="image in allImages"
-            :key="image.id"
-            :src="image.link"
-       />
+    <div>
+        <div v-if="isLoggedIn" class="image-container">
+            <img v-for="image in allImages"
+                 :key="image.id"
+                 :src="image.link"
+            />
+        </div>
+        <h2 v-else>
+            Please log in to get started!
+        </h2>
     </div>
 </template>
 
@@ -13,7 +18,7 @@
     export default {
         name: "ImageList",
         methods: mapActions(['fetchImages']),
-        computed: mapGetters(['allImages']),
+        computed: mapGetters(['allImages', 'isLoggedIn']),
         created() {
             this.fetchImages();
         }
@@ -29,5 +34,9 @@
     img {
         max-width: 100%;
         padding: 5px;
+    }
+    
+    h2 {
+        text-align: center;
     }
 </style>
